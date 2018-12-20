@@ -11,7 +11,7 @@ export class BubbleFade {
     public color: string;
 
     public constructor(mouse: Coordinate) {
-        this.radius = Helper.random(40, 60);
+        this.radius = Helper.random(30, 50);
         this.color = Helper.randomColor();
 
         this.dx = Helper.random(-1.5, 1.5);

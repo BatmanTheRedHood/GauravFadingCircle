@@ -31,12 +31,29 @@ export class CircleFadeComponent implements OnInit, AfterViewInit, OnDestroy {
         this.setCanvas();
 
         this.runGame();
+
+        console.log(Helper.maxWidth);
+        console.log(Helper.maxHeight);
     }
 
     @HostListener('mousemove', ['$event'])
     onMousemove(event: MouseEvent) {
         this.mouse.x = event.x;
         this.mouse.y = event.y;
+    }
+
+    @HostListener('touchstart', ['$event'])
+    onTouch(event: TouchEvent) {
+        event.preventDefault();
+        this.mouse.x = event.touches[0].clientX;
+        this.mouse.y = event.touches[0].clientY;
+    }
+
+    @HostListener('touchmove', ['$event'])
+    onTouchMove(event: TouchEvent) {
+        event.preventDefault();
+        this.mouse.x = event.touches[0].clientX;
+        this.mouse.y = event.touches[0].clientY;
     }
 
     // #region Game rules
